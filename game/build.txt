@@ -1,0 +1,5 @@
+game/engine/>g++ -c *.cpp
+
+game/engine/>ar rcs libengine.a *.o
+
+game>g++ -o adventure.exe *.cpp -Iengine engine/libengine.a

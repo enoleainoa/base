@@ -1,0 +1,23 @@
+////////////////////
+/// Advanced C++
+/// Adventure Game 6
+/// Rene Seger 1200684
+/// rene.seger@gmail.com 
+////////////////////
+#include "Game.h"
+////////////////////////////////////////////////////////////////////////////////
+int main()
+{
+	try
+	{
+		Game g;
+		g.Play();
+	}
+	catch(exception &e)
+	{
+	cout << "\nGame could not be started.\nException caught: " << e.what() << endl; 
+	}
+	
+  return 0;
+}
+////////////////////////////////////////////////////////////////////////////////
