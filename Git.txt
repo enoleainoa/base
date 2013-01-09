@@ -1,0 +1,8 @@
+Repo: https://github.com/enoleainoa/base.git
+
+
+Commands:
+
+Commit: git commit -m 'comment in here'
+
+Push: git push base master (master is the branch where the commit will take place)
