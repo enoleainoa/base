@@ -58,7 +58,7 @@ Player::PrintSummary()
 }
 ////////////////////////////////////////////////////////////////////////////////
 void
-Player::AskInfo( Player & p)
+Player::AskInfo( Player & p )
 {
 	//throw runtime_error("error from askinfo");
 
@@ -77,8 +77,7 @@ Player::AskInfo( Player & p)
       f >> iTmp; p.SetClass((Class)iTmp);
       f >> iTmp; p.SetAge(iTmp);
       f >> g; p.SetGender( (g == 'm' ? Male : Female) );
-      f >> iTmp; p.SetExperience(iTmp);
-      
+      f >> iTmp; p.SetExperience(iTmp);      
     }
 
     /*

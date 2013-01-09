@@ -31,6 +31,7 @@ public:
   bool IsRunning() const;
   void SetRunning(bool bFlag ) ;
   Player & GetPlayer();
+  void SetPlayer(Player p);
   Room * GetCurrentRoom();
   void SetCurrentRoom( Room *pRoom );
 };

@@ -6,6 +6,8 @@
 ////////////////////
 #include "CommandFactory.h"
 #include "QuitCommand.h"
+#include "LoadCommand.h"
+#include "SaveCommand.h"
 #include "SearchCommand.h"
 #include "AttackCommand.h"
 #include "UnknownCommand.h"
@@ -27,6 +29,16 @@ CommandFactory::Create( const std::string & str )
   if ( word == "quit" )
   {
     return new QuitCommand(m_pGame);
+  }
+  
+  if ( word == "save" )
+  {
+    return new SaveCommand(m_pGame);
+  }
+  
+  if ( word == "load" )
+  {
+    return new LoadCommand(m_pGame);
   }
   
   if ( word == "search")

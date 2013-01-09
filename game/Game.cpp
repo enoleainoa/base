@@ -76,7 +76,7 @@ void Game::Play()
 	cout << "Exception caught: " << e.what() << endl; 
   }
   */  
-  string cmd;
+
   //Own try - catch for game initialization  
   try
   { 
@@ -85,40 +85,70 @@ void Game::Play()
 	s << "by " << DEV_NAME << "(c) " << YEAR << ". Licensed under GPLv3.\n";
 	renderer->Render(s.str());
 	
-	Player::AskInfo(player);
-	renderer->Render("\nPlayer statistics:\n\n");
-	player.PrintSummary();
-	renderer->Render("\nAnd behold, the adventure begins!\n");
-	player.SetGame(this);
-	srand(time(NULL));
+	string loadPrevious = "";
+	cout << "\nDo you want to load previous game? y/n: ";
+	cin >> loadPrevious;
+	
+	if(loadPrevious == "y")
+	{	
+		CommandFactory comm(this);
+		ICommand *pCommand = comm.Create( "load" ); 
+		if ( pCommand ) pCommand->Execute();
+		delete pCommand;
+		
+		renderer->Render("\nPlayer statistics:\n\n");
+		player.PrintSummary();
+		renderer->Render("\nAnd behold, the adventure begins!\n");
+		player.SetGame(this);
+	}
+	else
+	{	
+		Player::AskInfo(player);
+		renderer->Render("\nPlayer statistics:\n\n");
+		player.PrintSummary();
+		renderer->Render("\nAnd behold, the adventure begins!\n");
+		player.SetGame(this);
+		srand(time(NULL));
+	}
   }
   catch(exception &e)
   {
 	cout << "\nGame could not be initalized. \nException caught: " << e.what() << endl; 
 	running = false;
   }  
+  
+  string a;
+  getline(cin,a);
       
   while(running)
   {
 	try
 	{
+		string cmd;
 		renderer->Render(GetCurrentRoom()->GetDescription());
 		renderer->Render("\n> ");
 
 		getline(cin,cmd);
+		
+		if(cmd=="load")
+		{
+			cout << "Loading ..." << endl;
+		}
+		else
+		{
+			CommandFactory comm(this);
+			ICommand *pCommand = comm.Create( cmd ); 
+			if ( pCommand ) pCommand->Execute();
+			delete pCommand;
 
-		CommandFactory comm(this);
-		ICommand *pCommand = comm.Create( cmd ); 
-		if ( pCommand ) pCommand->Execute();
-		delete pCommand;
-
-		GetCurrentRoom()->Update();
-		  
-		if ( player.GetHitpoints() <= 0 ) {
-		  
-		  renderer->Render("You're dead. Game over.\n");
-		  running = false;
-    }
+			GetCurrentRoom()->Update();
+			  
+			if ( player.GetHitpoints() <= 0 ) 
+			{		  
+				renderer->Render("You're dead. Game over.\n");
+				running = false;
+			}
+		}
 	}
 	catch(exception &e)
 	{
@@ -157,6 +187,12 @@ Player &
 Game::GetPlayer()
 {
   return player;
+}
+////////////////////////////////////////////////////////////////////////////////
+void 
+Game::SetPlayer(Player p)
+{
+  player = p;
 }
 ////////////////////////////////////////////////////////////////////////////////
 
