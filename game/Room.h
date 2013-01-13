@@ -21,9 +21,10 @@ private:
   Room *        rooms[kNumDirs];
   std::string   description;
   Game *        game;
+  int			id;
 public:
 
-  Room();
+  Room(int id);
   virtual ~Room();
   void SetGame( Game * pGame );
   Game * GetGame() const;
@@ -31,6 +32,7 @@ public:
   const std::string & GetDescription() const;
   void   SetNextRoom( Direction d, Room * pRoom );
   Room * GetNextRoom( Direction d );
+  int GetCurrentRoomId();
 
   virtual Room * OnMoveCommand( MoveCommand *pCommand );
   virtual void   OnAttack( AttackCommand *pCommand );

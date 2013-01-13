@@ -19,7 +19,7 @@ class Dungeon : public Room
 private:
 
 public:
-  Dungeon()
+  Dungeon() : Room(0)
   {
     SetDescription("You are locked up in a dungeon.");
   }

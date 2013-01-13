@@ -15,7 +15,7 @@ class Chambers : public Room
 private:
   bool waitForIt;
 public:
-  Chambers()
+  Chambers() : Room(3)
   {
     SetDescription("You are in princess' chambers.");
     waitForIt = true;

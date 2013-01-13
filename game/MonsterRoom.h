@@ -17,7 +17,7 @@ private:
   Enemy e;
   bool noticedPlayer;
 public:
-  MonsterRoom()
+  MonsterRoom() : Room(2)
   {
     noticedPlayer = false;
     e.SetName( "Orc");

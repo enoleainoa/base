@@ -1,14 +1,18 @@
 ////////////////////
-/// C++ Object-oriented Programming
+/// Advanced C++
 /// Adventure Game 6
-/// Reference answer 
-/// anssi.grohn@pkamk.fi
+/// Rene Seger 1200684
+/// rene.seger@gmail.com 
 ////////////////////
 #include "Gold.h"
 ////////////////////////////////////////////////////////////////////////////////
+Gold::Gold():m_nAmount(0)
+{
+}
+////////////////////////////////////////////////////////////////////////////////
 Gold::Gold( unsigned int value) : m_nAmount(value)
 {
-  
+ 
 }
 ////////////////////////////////////////////////////////////////////////////////
 Gold::~Gold()
@@ -22,9 +26,33 @@ Gold::GetAmount() const
   return m_nAmount;
 }
 ////////////////////////////////////////////////////////////////////////////////
+unsigned int 
+Gold::GetTotalAmount() const
+{
+	return m_totalAmount;
+}
+////////////////////////////////////////////////////////////////////////////////
 void 
 Gold::SetAmount( unsigned int value )
 {
-  m_nAmount = value;
+	m_nAmount = value;
 }
 ////////////////////////////////////////////////////////////////////////////////
+void
+Gold::SetDefault( unsigned int value )
+{
+	m_totalAmount = value;
+}
+//Operator overloadings///
+int
+Gold::operator+( unsigned int value )
+{
+	m_totalAmount = m_totalAmount + value;
+}
+
+int
+Gold::operator-( unsigned int value )
+{
+	m_totalAmount = m_totalAmount - value;
+}
+//////////////////////////

@@ -25,24 +25,22 @@ public:
 			
 	ifstream f("savedstate.txt");
 	
-
-	while ( !f.eof()  )
-	{	
-		string line;
-		
-		f >> line;
-		if ( line == "#player")
-		{
-		  int iTmp;
-		  string strTmp;
-		  char g;
-		  f >> strTmp; p.SetName(strTmp);
-		  f >> strTmp; p.SetRace(strTmp);
-		  f >> iTmp; p.SetClass((Class)iTmp);
-		  f >> iTmp; p.SetAge(iTmp);
-		  f >> g; p.SetGender( (g == 'm' ? Male : Female) );
-		  f >> iTmp; p.SetExperience(iTmp);
-		}
+	if (f.is_open())
+	{
+	  int iTmp;
+	  string strTmp;
+	  int g;
+	  f >> strTmp; p.SetName(strTmp);
+	  f >> strTmp; p.SetRace(strTmp);
+	  f >> iTmp; p.SetClass((Class)iTmp);
+	  f >> iTmp; p.SetAge(iTmp);
+	  f >> g; p.SetGender( (g == 'm' ? Male : Female) );
+	  f >> iTmp; p.SetExperience(iTmp);
+	  
+	  f >> iTmp; GetGame()->GetGold() + iTmp;
+	  //f >> iTmp; currentRoom = rooms[iTmp];
+	  	
+	  f.close();
 	}
 	
 	GetGame()->SetPlayer(p);

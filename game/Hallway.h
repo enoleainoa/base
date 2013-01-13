@@ -12,7 +12,7 @@
 class Hallway : public Room
 {
 public:
-  Hallway()
+  Hallway() : Room(1)
   {
     SetDescription("You are standing in a pretty damp hallway.");
   }

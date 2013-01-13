@@ -13,12 +13,14 @@ class Room;
 enum RoomId { kDungeon, kHallway, kMonster, kChambers, kNumRooms };
 #include "Player.h"
 #include "Enemy.h"
+#include "Gold.h"
 ////////////////////////////////////////////////////////////////////////////////
 class Game 
 {
 private:
   bool running;
   Player player;
+  Gold gold;
   IRenderer *renderer;
   Room      *rooms[kNumRooms]; ///< Map.
   Room      *currentRoom;
@@ -34,6 +36,8 @@ public:
   void SetPlayer(Player p);
   Room * GetCurrentRoom();
   void SetCurrentRoom( Room *pRoom );
+  Gold & GetGold();
+  void SetGold(Gold gold);
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif

@@ -1,8 +1,8 @@
 ////////////////////
-/// C++ Object-oriented Programming
+/// Advanced C++
 /// Adventure Game 6
-/// Reference answer 
-/// anssi.grohn@pkamk.fi
+/// Rene Seger 1200684
+/// rene.seger@gmail.com 
 ////////////////////
 #ifndef __GoldFactory_h__
 #define __GoldFactory_h__

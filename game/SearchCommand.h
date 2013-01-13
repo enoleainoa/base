@@ -24,8 +24,15 @@ public:
       GoldFactory f;
       Gold *g = f.Create( 1+rand()%100 );
       std::ostringstream s;
-      s << "You found " << g->GetAmount() << " gold!\n";
-      GetGame()->GetRenderer()->Render(s.str());
+	  
+	  int amount = g->GetAmount();
+      s << "You found " << amount << " gold!\n";
+	  GetGame()->GetRenderer()->Render(s.str());	  
+	  
+	  GetGame()->GetGold() + amount;	  
+	  int total = GetGame()->GetGold().GetTotalAmount();	  
+	  cout << "Total amount " << total << " of gold." << endl;
+	  
       delete g;
     }
     else {
