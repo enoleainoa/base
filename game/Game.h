@@ -37,7 +37,7 @@ public:
   Room * GetCurrentRoom();
   void SetCurrentRoom( Room *pRoom );
   Gold & GetGold();
-  void SetGold(Gold gold);
+  void SetGold(Gold g);
 };
 ////////////////////////////////////////////////////////////////////////////////
 #endif

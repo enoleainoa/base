@@ -44,15 +44,5 @@ Gold::SetDefault( unsigned int value )
 	m_totalAmount = value;
 }
 //Operator overloadings///
-int
-Gold::operator+( unsigned int value )
-{
-	m_totalAmount = m_totalAmount + value;
-}
 
-int
-Gold::operator-( unsigned int value )
-{
-	m_totalAmount = m_totalAmount - value;
-}
 //////////////////////////

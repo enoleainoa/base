@@ -7,7 +7,7 @@
 #ifndef __LoadCommand_h__
 #define __LoadCommand_h__
 #include "Command.h"
-#include "Game.h"
+#include "Gold.h"
 #include "IRenderer.h"
 #include "Player.h"
 #include "globals.h"
@@ -37,7 +37,7 @@ public:
 	  f >> g; p.SetGender( (g == 'm' ? Male : Female) );
 	  f >> iTmp; p.SetExperience(iTmp);
 	  
-	  f >> iTmp; GetGame()->GetGold() + iTmp;
+	  f >> iTmp; GetGame()->SetGold(iTmp);
 	  //f >> iTmp; currentRoom = rooms[iTmp];
 	  	
 	  f.close();

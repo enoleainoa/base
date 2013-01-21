@@ -1,6 +1,6 @@
 ////////////////////
 /// Advanced C++
-/// Adventure Game 6
+/// Adventure Game
 /// Rene Seger 1200684
 /// rene.seger@gmail.com 
 ////////////////////

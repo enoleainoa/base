@@ -1,8 +1,8 @@
 ////////////////////
-/// C++ Object-oriented Programming
-/// Adventure Game 6
-/// Reference answer 
-/// anssi.grohn@pkamk.fi
+/// Advanced C++
+/// Adventure Game
+/// Rene Seger 1200684
+/// rene.seger@gmail.com 
 ////////////////////
 #ifndef __IRenderer_h__
 #define __IRenderer_h__

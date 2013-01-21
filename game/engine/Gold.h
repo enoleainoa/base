@@ -18,19 +18,38 @@ class Gold
 private:
   unsigned int m_nAmount;
   unsigned int m_totalAmount;
-  Gold(unsigned int value);
-  Gold();
   
 public:
+  Gold(unsigned int value);
+  Gold();
   virtual ~Gold();
   unsigned int GetAmount() const;
   unsigned int GetTotalAmount() const;
   void SetAmount( unsigned int value );
   void SetDefault( unsigned int value );
   
-  int Gold::operator+( unsigned int value );
-  int Gold::operator-( unsigned int value );
+  template<typename T>
+  T Gold::operator+( T value )
+  {
+    m_totalAmount = m_totalAmount + value;
+  };
   
+  //Specialized template goes like this, but as I did not create template class for this Gold object I will not use double type specialization
+  /*template<double T>
+  T Gold::operator+( T value )
+  {
+    m_totalAmount = m_totalAmount + value;
+  };*/
+   
+  template<typename T>
+  T Gold::operator-( T value )
+  {
+    m_totalAmount = m_totalAmount - value;
+  }
+   
 };
+
+
 ////////////////////////////////////////////////////////////////////////////////
 #endif
+
